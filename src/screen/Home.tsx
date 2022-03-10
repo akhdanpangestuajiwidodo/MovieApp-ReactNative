@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {FlatList, ListRenderItem, Text, View} from 'react-native';
+import {FlatList, ListRenderItem} from 'react-native';
 import Card from '../component/Card';
 
 interface typeMovieData {

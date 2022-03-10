@@ -9,15 +9,13 @@
  */
 
 import React from 'react';
-import {SafeAreaView, ScrollView, StyleSheet} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
 import Home from './src/screen/Home';
 
 const App = () => {
   return (
     <SafeAreaView style={style.parentStyle}>
-      <ScrollView>
-        <Home />
-      </ScrollView>
+      <Home />
     </SafeAreaView>
   );
 };

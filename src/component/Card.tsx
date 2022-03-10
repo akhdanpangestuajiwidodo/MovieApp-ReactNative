@@ -11,26 +11,25 @@ interface typeMovieData {
   direktur: string;
 }
 
-const Card = (props: typeMovieData) => {
+const Card = (props: {movieData: typeMovieData}) => {
+  console.log(typeof props);
   const {movieData} = props;
-  console.log('Cek data', movieData);
-  console.log(typeof movieData);
   return (
     <View style={stylesCard.card}>
       <View style={stylesCard.cardContent}>
         <Image
           style={stylesCard.cardImage}
           source={{
-            uri: 'https://lumiere-a.akamaihd.net/v1/images/p_blackwidow_21043_v2_6d1b73b8.jpeg',
+            uri: `${movieData.gambar}`,
           }}
         />
         <View>
-          <Text style={stylesCard.cardTitle}>{props}</Text>
+          <Text style={stylesCard.cardTitle}>{movieData.judul}</Text>
           <View style={stylesCard.cardMiddleContainer}>
-            <Text style={stylesCard.cardMiddleText}>Director : Akhdan</Text>
-            <Text style={stylesCard.cardMiddleText}>Duration : 50 min</Text>
+            <Text style={stylesCard.cardMiddleText}>{movieData.direktur}</Text>
+            <Text style={stylesCard.cardMiddleText}>{movieData.durasi}</Text>
           </View>
-          <Text style={stylesCard.cardRatingText}>8.2</Text>
+          <Text style={stylesCard.cardRatingText}>{movieData.rating}</Text>
         </View>
       </View>
     </View>
@@ -42,13 +41,21 @@ const stylesCard = StyleSheet.create({
     backgroundColor: '#1C1C3C',
     flex: 1,
     borderRadius: 8,
+    marginVertical: 30,
+    padding: 0,
   },
   cardContent: {
     flexDirection: 'row',
-    padding: 10,
+    padding: 18,
     alignItems: 'center',
   },
-  cardImage: {width: 100, height: 100, marginEnd: 12, borderRadius: 4},
+  cardImage: {
+    width: 100,
+    height: 150,
+    borderRadius: 4,
+    marginTop: -50,
+    marginEnd: 20,
+  },
   cardTitle: {color: 'white', fontWeight: 'bold', fontSize: 18},
   cardMiddleContainer: {marginVertical: 4},
   cardMiddleText: {color: '#525A62', fontWeight: '700', fontSize: 12},
