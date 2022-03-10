@@ -1,7 +1,20 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import {Image, Text, View, StyleSheet} from 'react-native';
-const Card = () => {
+
+interface typeMovieData {
+  id: string;
+  judul: string;
+  gambar: string;
+  rating: string;
+  durasi: string;
+  direktur: string;
+}
+
+const Card = (props: typeMovieData) => {
+  const {movieData} = props;
+  console.log('Cek data', movieData);
+  console.log(typeof movieData);
   return (
     <View style={stylesCard.card}>
       <View style={stylesCard.cardContent}>
@@ -12,7 +25,7 @@ const Card = () => {
           }}
         />
         <View>
-          <Text style={stylesCard.cardTitle}>Black Window</Text>
+          <Text style={stylesCard.cardTitle}>{props}</Text>
           <View style={stylesCard.cardMiddleContainer}>
             <Text style={stylesCard.cardMiddleText}>Director : Akhdan</Text>
             <Text style={stylesCard.cardMiddleText}>Duration : 50 min</Text>
