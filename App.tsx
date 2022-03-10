@@ -11,20 +11,21 @@
 
 import React from 'react';
 import {SafeAreaView, ScrollView, StyleSheet} from 'react-native';
-import Home from './src/screen/Home';
+import DetailMovie from './src/screen/DetailMovie';
+// import Home from './src/screen/Home';
 
 const App = () => {
   return (
     <SafeAreaView style={style.parentStyle}>
       <ScrollView>
-        <Home />
+        <DetailMovie />
       </ScrollView>
     </SafeAreaView>
   );
 };
 
 const style = StyleSheet.create({
-  parentStyle: {backgroundColor: '#18172E', flex: 1, padding: 16},
+  parentStyle: {backgroundColor: '#18172E', flex: 1, padding: 0},
 });
 
 export default App;
