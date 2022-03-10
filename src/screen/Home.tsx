@@ -1,7 +1,8 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {FlatList, ListRenderItem} from 'react-native';
+import {FlatList, ListRenderItem, View} from 'react-native';
 import Card from '../component/Card';
+import Header from '../component/Header';
 
 interface typeMovieData {
   id: string;
@@ -24,12 +25,12 @@ const DATA: typeMovieData[] = [
   },
   {
     id: '2',
-    judul: 'Black Window',
+    judul: 'Aladdin',
     gambar:
-      'https://lumiere-a.akamaihd.net/v1/images/p_blackwidow_21043_v2_6d1b73b8.jpeg',
-    rating: '9.0',
-    durasi: '50',
-    direktur: 'Kak Vito',
+      'https://lumiere-a.akamaihd.net/v1/images/aladdin-movie-poster_63150511.jpeg',
+    rating: '7.0',
+    durasi: '100',
+    direktur: 'Dwika',
   },
   {
     id: '3',
@@ -48,11 +49,14 @@ const renderItem: ListRenderItem<typeMovieData> = ({item}) => (
 
 const Home = () => {
   return (
-    <FlatList
-      data={DATA}
-      renderItem={renderItem}
-      keyExtractor={item => item.id}
-    />
+    <View>
+      <Header />
+      <FlatList
+        data={DATA}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+      />
+    </View>
   );
 };
 
