@@ -26,8 +26,12 @@ const Card = (props: {movieData: typeMovieData}) => {
         <View>
           <Text style={stylesCard.cardTitle}>{movieData.judul}</Text>
           <View style={stylesCard.cardMiddleContainer}>
-            <Text style={stylesCard.cardMiddleText}>{movieData.direktur}</Text>
-            <Text style={stylesCard.cardMiddleText}>{movieData.durasi}</Text>
+            <Text style={stylesCard.cardMiddleText}>
+              Director: {movieData.direktur}
+            </Text>
+            <Text style={stylesCard.cardMiddleText}>
+              Duration: {movieData.durasi} min
+            </Text>
           </View>
           <Text style={stylesCard.cardRatingText}>{movieData.rating}</Text>
         </View>
@@ -58,7 +62,7 @@ const stylesCard = StyleSheet.create({
   },
   cardTitle: {color: 'white', fontWeight: 'bold', fontSize: 18},
   cardMiddleContainer: {marginVertical: 4},
-  cardMiddleText: {color: '#525A62', fontWeight: '700', fontSize: 12},
+  cardMiddleText: {color: '#525A62', fontWeight: '600', fontSize: 12},
   cardRatingText: {color: '#E3C74F', fontWeight: '700', fontSize: 24},
 });
 

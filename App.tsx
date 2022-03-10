@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -9,13 +10,15 @@
  */
 
 import React from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
+import {SafeAreaView, ScrollView, StyleSheet} from 'react-native';
 import Home from './src/screen/Home';
 
 const App = () => {
   return (
     <SafeAreaView style={style.parentStyle}>
-      <Home />
+      <ScrollView>
+        <Home />
+      </ScrollView>
     </SafeAreaView>
   );
 };
