@@ -15,7 +15,7 @@ const SearchBar = () => {
           style={styles.input}
           placeholder="Search Movie"
           underlineColorAndroid="transparent"
-          placeholderTextColor="white"
+          placeholderTextColor="#FDFEFF"
         />
       </View>
     </View>
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#525A62',
+    backgroundColor: '#322A5E',
     // borderWidth: 0.5,
     // borderColor: '#000',
     height: 40,
