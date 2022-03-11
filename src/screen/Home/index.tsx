@@ -11,6 +11,7 @@ import style from './styles';
 import Card from '../../component/Card';
 import Header from '../../component/Header';
 import SearchBar from '../../component/SearchBar';
+import MyCarousel from '../../component/Carousel';
 
 interface typeMovieData {
   id: string;
@@ -61,6 +62,8 @@ const Home = () => {
       <ScrollView>
         <Header />
         <SearchBar />
+        <Text style={style.titleNew}>Trending Now</Text>
+        <MyCarousel />
         <Text style={style.titleCategory}>Popular</Text>
         <FlatList
           data={DATA}

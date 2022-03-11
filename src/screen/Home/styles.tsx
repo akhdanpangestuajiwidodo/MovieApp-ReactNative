@@ -6,6 +6,13 @@ const style = StyleSheet.create({
   titleCategory: {
     color: '#FDFEFFc0',
     paddingHorizontal: 10,
+    marginBottom: 24,
+    fontWeight: '800',
+    marginTop: 30,
+  },
+  titleNew: {
+    color: '#FDFEFFc0',
+    paddingHorizontal: 10,
     marginBottom: 28,
     fontWeight: '800',
   },
