@@ -1,6 +1,13 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {Image, ImageBackground, StyleSheet, Text, View} from 'react-native';
+import {
+  Image,
+  ImageBackground,
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  View,
+} from 'react-native';
 import HeaderDetail from '../component/HeaderDetail';
 
 const DetailMovie = () => {
@@ -25,6 +32,12 @@ const DetailMovie = () => {
                 repellendus quo totam modi sequi eum molestias quasi.
               </Text>
             </View>
+            <TouchableHighlight style={styles.backButton} underlayColor="#ccc">
+              <Image
+                source={require('../../assets/favorite.png')}
+                style={styles.favImage}
+              />
+            </TouchableHighlight>
           </View>
           <View style={styles.cardDetail}>
             <View style={styles.containerInternalCard}>
@@ -77,6 +90,19 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#18172E',
   },
+  backButton: {
+    borderRadius: 50 / 2,
+    width: 50,
+    height: 50,
+    backgroundColor: '#272DDA',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    flex: 1,
+    marginTop: -25,
+    right: 10,
+  },
+  favImage: {width: 23, height: 23},
   image: {
     flex: 1,
     height: '45%',

@@ -11,11 +11,6 @@ const HeaderDetail = () => {
           style={stylesHeader.menuHeaderImage}
         />
       </TouchableHighlight>
-
-      <Image
-        source={require('../../assets/favorite.png')}
-        style={stylesHeader.favoriteHeaderImage}
-      />
     </View>
   );
 };
