@@ -13,12 +13,7 @@ const DetailMovie = () => {
         style={styles.image}>
         <View style={styles.text}>
           <View style={styles.cardDetail}>
-            <View
-              style={{
-                paddingHorizontal: 12,
-                paddingTop: 24,
-                paddingBottom: 14,
-              }}>
+            <View style={styles.containerInternalCard}>
               <Text
                 style={{fontSize: 20, color: '#FDFEFF', fontWeight: 'bold'}}>
                 Maniac
@@ -41,12 +36,7 @@ const DetailMovie = () => {
             </View>
           </View>
           <View style={styles.cardDetail}>
-            <View
-              style={{
-                paddingHorizontal: 12,
-                paddingTop: 24,
-                paddingBottom: 14,
-              }}>
+            <View style={styles.containerInternalCard}>
               <View
                 style={{
                   justifyContent: 'space-between',
@@ -135,6 +125,11 @@ const styles = StyleSheet.create({
     height: 45,
     borderRadius: 45 / 2,
     overflow: 'hidden',
+  },
+  containerInternalCard: {
+    paddingHorizontal: 12,
+    paddingTop: 24,
+    paddingBottom: 14,
   },
 });
 
