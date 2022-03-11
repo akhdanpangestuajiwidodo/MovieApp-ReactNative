@@ -33,7 +33,18 @@ const Card = (props: {movieData: typeMovieData}) => {
               Duration: {movieData.durasi} min
             </Text>
           </View>
-          <Text style={stylesCard.cardRatingText}>{movieData.rating}</Text>
+          <View
+            style={{
+              justifyContent: 'flex-start',
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}>
+            <Text style={stylesCard.cardRatingText}>{movieData.rating}</Text>
+            <Image
+              source={require('../../assets/star.png')}
+              style={stylesCard.imageStar}
+            />
+          </View>
         </View>
       </View>
     </View>

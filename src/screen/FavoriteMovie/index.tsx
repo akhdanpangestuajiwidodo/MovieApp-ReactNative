@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {FlatList, ListRenderItem, SafeAreaView, Text} from 'react-native';
+import {FlatList, ListRenderItem, SafeAreaView} from 'react-native';
 import Card from '../../component/Card';
 import HeaderFavorite from '../../component/HeaderFavorite';
 import styles from './styles';
