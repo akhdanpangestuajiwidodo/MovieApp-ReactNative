@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import {Image, ImageBackground, StyleSheet, Text, View} from 'react-native';
+import HeaderDetail from '../component/HeaderDetail';
 
 const DetailMovie = () => {
   return (
@@ -11,7 +12,8 @@ const DetailMovie = () => {
         }}
         resizeMode="cover"
         style={styles.image}>
-        <View style={styles.text}>
+        <View style={styles.parentDetailContainer}>
+          <HeaderDetail />
           <View style={styles.cardDetail}>
             <View style={styles.containerInternalCard}>
               <Text style={styles.titleCardDetail}>Maniac</Text>
@@ -79,7 +81,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: '45%',
   },
-  text: {
+  parentDetailContainer: {
     flex: 1,
     padding: 16,
   },
