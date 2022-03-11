@@ -14,7 +14,7 @@ import DetailMovie from './src/screen/DetailMovie';
 import Home from './src/screen/Home';
 
 const App = () => {
-  return <Home />;
+  return <DetailMovie />;
 };
 
 export default App;

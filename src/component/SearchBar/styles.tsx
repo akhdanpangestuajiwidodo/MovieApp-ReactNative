@@ -1,26 +1,6 @@
 /* eslint-disable prettier/prettier */
-import React from 'react';
-import {Image, StyleSheet, TextInput, View} from 'react-native';
+import {StyleSheet} from 'react-native';
 
-const SearchBar = () => {
-  return (
-    <View style={styles.container}>
-      <View style={styles.SectionStyle}>
-        <Image
-          source={require('../../assets/search.png')}
-          style={styles.ImageStyle}
-        />
-
-        <TextInput
-          style={styles.input}
-          placeholder="Search Movie"
-          underlineColorAndroid="transparent"
-          placeholderTextColor="#525A62"
-        />
-      </View>
-    </View>
-  );
-};
 const styles = StyleSheet.create({
   input: {
     flex: 1,
@@ -56,4 +36,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SearchBar;
+export default styles;

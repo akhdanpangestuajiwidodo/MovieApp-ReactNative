@@ -1,19 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React from 'react';
-import {Image, StyleSheet, TouchableHighlight, View} from 'react-native';
-
-const HeaderDetail = () => {
-  return (
-    <View style={stylesHeader.containerHeader}>
-      <TouchableHighlight style={stylesHeader.backButton} underlayColor="#ccc">
-        <Image
-          source={require('../../assets/back.png')}
-          style={stylesHeader.menuHeaderImage}
-        />
-      </TouchableHighlight>
-    </View>
-  );
-};
+import {StyleSheet} from 'react-native';
 
 const stylesHeader = StyleSheet.create({
   containerHeader: {
@@ -33,9 +19,9 @@ const stylesHeader = StyleSheet.create({
     alignItems: 'center',
     paddingEnd: 2,
   },
-  menuHeaderImage: {width: 23, height: 23},
+  menuHeaderImage: {width: 20, height: 20},
   titleHeader: {color: '#FDFEFF', fontWeight: '700', fontSize: 14},
   favoriteHeaderImage: {width: 23, height: 23},
 });
 
-export default HeaderDetail;
+export default stylesHeader;
