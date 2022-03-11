@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   ScrollView,
   StyleSheet,
+  Text,
 } from 'react-native';
 import Card from '../component/Card';
 import Header from '../component/Header';
@@ -60,6 +61,7 @@ const Home = () => {
       <ScrollView>
         <Header />
         <SearchBar />
+        <Text style={style.titleCategory}>Popular</Text>
         <FlatList
           data={DATA}
           renderItem={renderItem}
@@ -72,6 +74,12 @@ const Home = () => {
 };
 
 const style = StyleSheet.create({
-  parentStyle: {backgroundColor: '#18172E', flex: 1, paddingHorizontal: 0},
+  parentStyle: {backgroundColor: '#18172E', flex: 1, paddingHorizontal: 16},
+  titleCategory: {
+    color: '#FDFEFFc0',
+    paddingHorizontal: 10,
+    marginBottom: 20,
+    fontWeight: '800',
+  },
 });
 export default Home;

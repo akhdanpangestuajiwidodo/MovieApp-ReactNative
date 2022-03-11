@@ -10,12 +10,11 @@
  */
 
 import React from 'react';
-import {SafeAreaView, ScrollView, StyleSheet} from 'react-native';
 import DetailMovie from './src/screen/DetailMovie';
 import Home from './src/screen/Home';
 
 const App = () => {
-  return <DetailMovie />;
+  return <Home />;
 };
 
 export default App;

@@ -7,7 +7,7 @@ const SearchBar = () => {
     <View style={styles.container}>
       <View style={styles.SectionStyle}>
         <Image
-          source={require('../../assets/search_white.png')}
+          source={require('../../assets/search.png')}
           style={styles.ImageStyle}
         />
 
@@ -15,7 +15,7 @@ const SearchBar = () => {
           style={styles.input}
           placeholder="Search Movie"
           underlineColorAndroid="transparent"
-          placeholderTextColor="#FDFEFF"
+          placeholderTextColor="#525A62"
         />
       </View>
     </View>
@@ -32,16 +32,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 30,
+    marginBottom: 24,
   },
 
   SectionStyle: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#322A5E',
-    // borderWidth: 0.5,
-    // borderColor: '#000',
+    backgroundColor: '#322A5Ec0',
     height: 40,
     borderRadius: 5,
     margin: 10,

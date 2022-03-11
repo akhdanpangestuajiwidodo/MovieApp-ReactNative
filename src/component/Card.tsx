@@ -45,7 +45,7 @@ const stylesCard = StyleSheet.create({
     flex: 1,
     borderRadius: 8,
     marginVertical: 30,
-    padding: 0,
+    marginHorizontal: 10,
   },
   cardContent: {
     flexDirection: 'row',
@@ -59,7 +59,7 @@ const stylesCard = StyleSheet.create({
     marginTop: -50,
     marginEnd: 20,
   },
-  cardTitle: {color: 'white', fontWeight: 'bold', fontSize: 18},
+  cardTitle: {color: '#FDFEFFc1', fontWeight: 'bold', fontSize: 18},
   cardMiddleContainer: {marginVertical: 4},
   cardMiddleText: {color: '#525A62', fontWeight: '600', fontSize: 12},
   cardRatingText: {color: '#E3C74F', fontWeight: '700', fontSize: 24},
