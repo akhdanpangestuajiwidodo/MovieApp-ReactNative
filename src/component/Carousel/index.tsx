@@ -6,20 +6,13 @@ import Carousel, {
 } from 'react-native-snap-carousel';
 import {View, Dimensions, StyleSheet, Platform} from 'react-native';
 
-interface typeCarousel {
+interface TypeDataMovie {
   title: string;
   subtitle: string;
   illustration: string;
 }
 
-type RenderItemType = (
-  item: {
-    item: any;
-  },
-  parallaxProps?: AdditionalParallaxProps,
-) => React.ReactNode;
-
-const ENTRIES1: typeCarousel[] = [
+const ENTRIES1 = [
   {
     title: 'Beautiful and dramatic Antelope Canyon',
     subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
@@ -52,14 +45,20 @@ const ENTRIES1: typeCarousel[] = [
 const {width: screenWidth} = Dimensions.get('window');
 
 const MyCarousel = () => {
-  const [entries, setEntries] = useState([{}]);
+  //Hooks data movie (array of object)
+  const [entries, setEntries] = useState<TypeDataMovie[]>([]);
+
   const carouselRef = useRef(null);
 
   useEffect(() => {
     setEntries(ENTRIES1);
   }, []);
 
-  const renderItem: RenderItemType = ({item}, parallaxProps) => {
+  const renderItem = (
+    {item}: {item: TypeDataMovie},
+    parallaxProps?: AdditionalParallaxProps,
+  ) => {
+    console.log(item);
     return (
       <View style={styles.item}>
         <ParallaxImage
