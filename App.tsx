@@ -15,7 +15,7 @@ import FavoriteMovie from './src/screen/FavoriteMovie';
 import Home from './src/screen/Home';
 
 const App = () => {
-  return <Home />;
+  return <FavoriteMovie />;
 };
 
 export default App;

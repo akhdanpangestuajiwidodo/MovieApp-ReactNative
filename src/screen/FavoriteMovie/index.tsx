@@ -2,8 +2,7 @@
 import React from 'react';
 import {FlatList, ListRenderItem, SafeAreaView, Text} from 'react-native';
 import Card from '../../component/Card';
-import Header from '../../component/Header';
-import SearchBar from '../../component/SearchBar';
+import HeaderFavorite from '../../component/HeaderFavorite';
 import styles from './styles';
 
 interface typeMovieData {
@@ -52,9 +51,7 @@ const renderItem: ListRenderItem<typeMovieData> = ({item}) => (
 const FavoriteMovie = () => {
   return (
     <SafeAreaView style={styles.parentStyle}>
-      <Header />
-      <SearchBar />
-      <Text style={styles.titleCategory}>Popular</Text>
+      <HeaderFavorite />
       <FlatList
         data={DATA}
         renderItem={renderItem}

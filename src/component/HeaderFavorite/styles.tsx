@@ -3,7 +3,8 @@ import {StyleSheet} from 'react-native';
 
 const stylesHeader = StyleSheet.create({
   containerHeader: {
-    marginVertical: 10,
+    marginTop: 10,
+    marginBottom: 40,
     justifyContent: 'space-between',
     flexDirection: 'row',
     paddingTop: 20,
@@ -11,7 +12,7 @@ const stylesHeader = StyleSheet.create({
     paddingHorizontal: 10,
     alignItems: 'center',
   },
-  menuHeaderImage: {width: 23, height: 23, transform: [{scaleX: -1}]},
+  menuHeaderImage: {width: 19, height: 19},
   titleHeader: {color: '#FDFEFF', fontWeight: '700', fontSize: 14},
   favoriteHeaderImage: {width: 23, height: 23},
 });

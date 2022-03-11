@@ -6,7 +6,7 @@ const style = StyleSheet.create({
   titleCategory: {
     color: '#FDFEFFc0',
     paddingHorizontal: 10,
-    marginBottom: 20,
+    marginBottom: 28,
     fontWeight: '800',
   },
 });

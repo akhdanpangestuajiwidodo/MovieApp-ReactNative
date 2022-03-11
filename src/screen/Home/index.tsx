@@ -58,15 +58,17 @@ const renderItem: ListRenderItem<typeMovieData> = ({item}) => (
 const Home = () => {
   return (
     <SafeAreaView style={style.parentStyle}>
-      <Header />
-      <SearchBar />
-      <Text style={style.titleCategory}>Popular</Text>
-      <FlatList
-        data={DATA}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-        scrollEnabled={true}
-      />
+      <ScrollView>
+        <Header />
+        <SearchBar />
+        <Text style={style.titleCategory}>Popular</Text>
+        <FlatList
+          data={DATA}
+          renderItem={renderItem}
+          keyExtractor={item => item.id}
+          scrollEnabled={false}
+        />
+      </ScrollView>
     </SafeAreaView>
   );
 };
