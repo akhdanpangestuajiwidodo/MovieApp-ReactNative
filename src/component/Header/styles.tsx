@@ -7,7 +7,7 @@ const stylesHeader = StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'row',
     paddingTop: 20,
-    paddingBottom: 10,
+    paddingBottom: 40,
     paddingHorizontal: 10,
     alignItems: 'center',
   },

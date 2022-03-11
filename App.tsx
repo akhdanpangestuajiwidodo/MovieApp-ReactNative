@@ -11,10 +11,11 @@
 
 import React from 'react';
 import DetailMovie from './src/screen/DetailMovie';
+import FavoriteMovie from './src/screen/FavoriteMovie';
 import Home from './src/screen/Home';
 
 const App = () => {
-  return <DetailMovie />;
+  return <Home />;
 };
 
 export default App;

@@ -1,16 +1,10 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {
-  FlatList,
-  ListRenderItem,
-  SafeAreaView,
-  ScrollView,
-  Text,
-} from 'react-native';
-import style from './styles';
+import {FlatList, ListRenderItem, SafeAreaView, Text} from 'react-native';
 import Card from '../../component/Card';
 import Header from '../../component/Header';
 import SearchBar from '../../component/SearchBar';
+import styles from './styles';
 
 interface typeMovieData {
   id: string;
@@ -55,12 +49,12 @@ const renderItem: ListRenderItem<typeMovieData> = ({item}) => (
   <Card movieData={item} />
 );
 
-const Home = () => {
+const FavoriteMovie = () => {
   return (
-    <SafeAreaView style={style.parentStyle}>
+    <SafeAreaView style={styles.parentStyle}>
       <Header />
       <SearchBar />
-      <Text style={style.titleCategory}>Popular</Text>
+      <Text style={styles.titleCategory}>Popular</Text>
       <FlatList
         data={DATA}
         renderItem={renderItem}
@@ -71,4 +65,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default FavoriteMovie;
