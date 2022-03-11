@@ -20,7 +20,7 @@ const Header = () => {
 
 const stylesHeader = StyleSheet.create({
   containerHeader: {
-    marginBottom: 10,
+    marginVertical: 10,
     justifyContent: 'space-between',
     flexDirection: 'row',
     padding: 10,
