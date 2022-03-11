@@ -6,7 +6,6 @@ import {
   SafeAreaView,
   ScrollView,
   StyleSheet,
-  View,
 } from 'react-native';
 import Card from '../component/Card';
 import Header from '../component/Header';

@@ -14,20 +14,9 @@ const DetailMovie = () => {
         <View style={styles.text}>
           <View style={styles.cardDetail}>
             <View style={styles.containerInternalCard}>
-              <Text
-                style={{fontSize: 20, color: '#FDFEFF', fontWeight: 'bold'}}>
-                Maniac
-              </Text>
-              <Text
-                style={{
-                  fontSize: 16,
-                  color: '#E3C74F',
-                  fontWeight: '700',
-                  marginVertical: 10,
-                }}>
-                9.0
-              </Text>
-              <Text style={{fontSize: 12, color: '#525A62', fontWeight: '600'}}>
+              <Text style={styles.titleCardDetail}>Maniac</Text>
+              <Text style={styles.ratingCardDetail}>9.0</Text>
+              <Text style={styles.deskripsiCardDetail}>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 Repellat est, debitis eligendi eius recusandae quisquam facilis
                 earum ipsa, perspiciatis quia doloremque exercitationem
@@ -37,27 +26,11 @@ const DetailMovie = () => {
           </View>
           <View style={styles.cardDetail}>
             <View style={styles.containerInternalCard}>
-              <View
-                style={{
-                  justifyContent: 'space-between',
-                  flexDirection: 'row',
-                  marginBottom: 16,
-                }}>
-                <Text
-                  style={{fontSize: 20, color: '#FDFEFF', fontWeight: 'bold'}}>
-                  Actor
-                </Text>
-                <Text
-                  style={{fontSize: 12, color: '#525A62', fontWeight: '600'}}>
-                  See all
-                </Text>
+              <View style={styles.titleActorCard}>
+                <Text style={styles.titleActor}>Actor</Text>
+                <Text style={styles.textSeeAll}>See all</Text>
               </View>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  justifyContent: 'space-between',
-                  alignItems: 'flex-start',
-                }}>
+              <View style={styles.imageActorList}>
                 <Image
                   source={{
                     uri: 'https://lumiere-a.akamaihd.net/v1/images/aladdin-movie-poster_63150511.jpeg',
@@ -110,9 +83,29 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 16,
   },
+  titleCardDetail: {fontSize: 20, color: '#FDFEFF', fontWeight: 'bold'},
+  ratingCardDetail: {
+    fontSize: 16,
+    color: '#E3C74F',
+    fontWeight: '700',
+    marginVertical: 10,
+  },
+  deskripsiCardDetail: {fontSize: 12, color: '#525A62', fontWeight: '600'},
   parentCardContainer: {
     paddingHorizontal: 8,
     marginHorizontal: 10,
+  },
+  titleActorCard: {
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    marginBottom: 16,
+  },
+  titleActor: {fontSize: 20, color: '#FDFEFF', fontWeight: 'bold'},
+  textSeeAll: {fontSize: 12, color: '#525A62', fontWeight: '600'},
+  imageActorList: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
   },
   cardDetail: {
     backgroundColor: '#1C1C3C',
