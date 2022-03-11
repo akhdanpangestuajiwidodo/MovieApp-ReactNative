@@ -5,12 +5,12 @@ import {
   ListRenderItem,
   SafeAreaView,
   ScrollView,
-  StyleSheet,
   Text,
 } from 'react-native';
-import Card from '../component/Card';
-import Header from '../component/Header';
-import SearchBar from '../component/SearchBar';
+import style from './styles';
+import Card from '../../component/Card';
+import Header from '../../component/Header';
+import SearchBar from '../../component/SearchBar';
 
 interface typeMovieData {
   id: string;
@@ -73,13 +73,4 @@ const Home = () => {
   );
 };
 
-const style = StyleSheet.create({
-  parentStyle: {backgroundColor: '#18172E', flex: 1, paddingHorizontal: 16},
-  titleCategory: {
-    color: '#FDFEFFc0',
-    paddingHorizontal: 10,
-    marginBottom: 20,
-    fontWeight: '800',
-  },
-});
 export default Home;
