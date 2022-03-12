@@ -23,11 +23,6 @@ interface typeMovieData {
   deskripsi: string;
 }
 
-interface typeNav {
-  navigate: Function;
-  goBack: Function;
-}
-
 const DATA: typeMovieData[] = [
   {
     id: '1',
@@ -64,14 +59,14 @@ const DATA: typeMovieData[] = [
   },
 ];
 
-const Home = ({navigation}) => {
+const Home = ({navigation}: any) => {
   const renderItem: ListRenderItem<typeMovieData> = ({item}) => (
     <Card movieData={item} navigation={navigation} />
   );
   return (
     <SafeAreaView style={style.parentStyle}>
       <ScrollView>
-        <Header />
+        <Header navigation={navigation} />
         <SearchBar />
         <Text style={style.titleNew}>Trending Now</Text>
         <MyCarousel />
