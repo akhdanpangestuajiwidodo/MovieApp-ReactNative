@@ -12,6 +12,7 @@ import Card from '../../component/Card';
 import Header from '../../component/Header';
 import SearchBar from '../../component/SearchBar';
 import MyCarousel from '../../component/Carousel';
+import {useNavigation} from '@react-navigation/native';
 
 interface typeMovieData {
   id: string;
@@ -52,11 +53,11 @@ const DATA: typeMovieData[] = [
   },
 ];
 
-const renderItem: ListRenderItem<typeMovieData> = ({item}) => (
-  <Card movieData={item} />
-);
-
 const Home = () => {
+  const navigation = useNavigation();
+  const renderItem: ListRenderItem<typeMovieData> = ({item}) => (
+    <Card movieData={item} navigation={navigation} />
+  );
   return (
     <SafeAreaView style={style.parentStyle}>
       <ScrollView>
