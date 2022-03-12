@@ -3,10 +3,19 @@ import React from 'react';
 import {Image, TouchableHighlight, View} from 'react-native';
 import stylesHeader from './styles';
 
-const HeaderDetail = () => {
+interface typeNav {
+  navigate: Function;
+  goBack: Function;
+}
+
+const HeaderDetail = ({navigation}: {navigation: typeNav}) => {
+  console.log('HeaderDetail', navigation);
   return (
     <View style={stylesHeader.containerHeader}>
-      <TouchableHighlight style={stylesHeader.backButton} underlayColor="#ccc">
+      <TouchableHighlight
+        style={stylesHeader.backButton}
+        underlayColor="#ccc"
+        onPress={() => navigation.goBack()}>
         <Image
           source={require('../../assets/back.png')}
           style={stylesHeader.menuHeaderImage}

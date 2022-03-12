@@ -13,7 +13,6 @@ import styles from './styles';
 
 const DetailMovie = ({route, navigation}) => {
   const {movieData} = route.params;
-  console.log(movieData);
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -23,7 +22,7 @@ const DetailMovie = ({route, navigation}) => {
         resizeMode="cover"
         style={styles.image}>
         <View style={styles.parentDetailContainer}>
-          <HeaderDetail />
+          <HeaderDetail navigation={navigation} />
           <View style={styles.cardDetail}>
             <View style={styles.containerInternalCard}>
               <Text style={styles.titleCardDetail}>{movieData.judul}</Text>
