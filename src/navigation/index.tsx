@@ -5,7 +5,6 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from '../screen/Home';
 import DetailMovie from '../screen/DetailMovie';
 import FavoriteMovie from '../screen/FavoriteMovie';
-import {View} from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,7 +17,6 @@ const Navigation = () => {
         }}>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Detail" component={DetailMovie} />
-        <Stack.Screen name="Blabla" component={props => <View>{props}</View>} />
         <Stack.Screen name="Favorite" component={FavoriteMovie} />
       </Stack.Navigator>
     </NavigationContainer>

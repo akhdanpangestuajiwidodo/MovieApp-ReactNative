@@ -15,12 +15,11 @@ interface typeMovieData {
 }
 
 const Card = ({movieData}: {movieData: typeMovieData}) => {
-  const navigate1 = useNavigation();
-  console.log('NavigationB', navigate1);
+  const navigate = useNavigation();
   return (
     <Pressable
       onPress={() =>
-        navigate1.navigate('Detail' as never, {movieData: movieData} as never)
+        navigate.navigate('Detail' as never, {movieData: movieData} as never)
       }>
       <View style={stylesCard.card}>
         <View style={stylesCard.cardContent}>

@@ -11,7 +11,7 @@ import {
 import HeaderDetail from '../../component/HeaderDetail';
 import styles from './styles';
 
-const DetailMovie = ({route, navigation}) => {
+const DetailMovie = ({route}) => {
   const {movieData} = route.params;
   return (
     <View style={styles.container}>
