@@ -10,7 +10,7 @@ import {
 import HeaderDetail from '../../component/HeaderDetail';
 import styles from './styles';
 
-const DetailMovie = ({route}: any) => {
+const DetailMovie = ({route, navigation}: any) => {
   const {movieData} = route.params;
   return (
     <View style={styles.container}>
@@ -21,7 +21,7 @@ const DetailMovie = ({route}: any) => {
         resizeMode="cover"
         style={styles.image}>
         <View style={styles.parentDetailContainer}>
-          <HeaderDetail />
+          <HeaderDetail navigation={navigation} />
           <View style={styles.cardDetail}>
             <View style={styles.containerInternalCard}>
               <Text style={styles.titleCardDetail}>{movieData.judul}</Text>

@@ -1,11 +1,13 @@
 /* eslint-disable prettier/prettier */
-import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {Image, TouchableHighlight, View} from 'react-native';
 import stylesHeader from './styles';
 
-const HeaderDetail = () => {
-  const navigation = useNavigation();
+interface typeNav {
+  goBack: Function;
+}
+
+const HeaderDetail = ({navigation}: {navigation: typeNav}) => {
   return (
     <View style={stylesHeader.containerHeader}>
       <TouchableHighlight

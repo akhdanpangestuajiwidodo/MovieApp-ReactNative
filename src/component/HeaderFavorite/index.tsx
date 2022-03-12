@@ -4,7 +4,6 @@ import {Image, Pressable, Text, View} from 'react-native';
 import stylesHeader from './styles';
 
 interface typeNav {
-  navigate: Function;
   goBack: Function;
 }
 
