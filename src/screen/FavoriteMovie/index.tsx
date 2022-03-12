@@ -51,13 +51,13 @@ const DATA: typeMovieData[] = [
   },
 ];
 
-const FavoriteMovie = () => {
+const FavoriteMovie = ({navigation}: any) => {
   const renderItem: ListRenderItem<typeMovieData> = ({item}) => (
-    <Card movieData={item} />
+    <Card movieData={item} navigation={navigation} />
   );
   return (
     <SafeAreaView style={styles.parentStyle}>
-      <HeaderFavorite />
+      <HeaderFavorite navigation={navigation} />
       <FlatList
         data={DATA}
         renderItem={renderItem}

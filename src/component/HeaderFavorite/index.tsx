@@ -1,11 +1,14 @@
 /* eslint-disable prettier/prettier */
-import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {Image, Pressable, Text, View} from 'react-native';
 import stylesHeader from './styles';
 
-const HeaderFavorite = () => {
-  const navigation = useNavigation();
+interface typeNav {
+  navigate: Function;
+  goBack: Function;
+}
+
+const HeaderFavorite = ({navigation}: {navigation: typeNav}) => {
   return (
     <View style={stylesHeader.containerHeader}>
       <Pressable onPress={() => navigation.goBack()}>
