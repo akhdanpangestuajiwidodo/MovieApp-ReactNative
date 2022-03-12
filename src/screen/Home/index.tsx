@@ -64,7 +64,7 @@ const Home = () => {
   const navigation = useNavigation();
   console.log(navigation);
   const renderItem: ListRenderItem<typeMovieData> = ({item}) => (
-    <Card movieData={item} navigation={navigation} />
+    <Card movieData={item} />
   );
   return (
     <SafeAreaView style={style.parentStyle}>
