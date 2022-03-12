@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {
   Image,
@@ -10,12 +11,14 @@ import {
 import HeaderDetail from '../../component/HeaderDetail';
 import styles from './styles';
 
-const DetailMovie = () => {
+const DetailMovie = ({route, navigation}) => {
+  const {movieData} = route.params;
+  console.log(movieData);
   return (
     <View style={styles.container}>
       <ImageBackground
         source={{
-          uri: 'https://lumiere-a.akamaihd.net/v1/images/aladdin-movie-poster_63150511.jpeg',
+          uri: `${movieData.gambar}`,
         }}
         resizeMode="cover"
         style={styles.image}>
@@ -23,13 +26,10 @@ const DetailMovie = () => {
           <HeaderDetail />
           <View style={styles.cardDetail}>
             <View style={styles.containerInternalCard}>
-              <Text style={styles.titleCardDetail}>Maniac</Text>
-              <Text style={styles.ratingCardDetail}>9.0</Text>
+              <Text style={styles.titleCardDetail}>{movieData.judul}</Text>
+              <Text style={styles.ratingCardDetail}>{movieData.rating}</Text>
               <Text style={styles.deskripsiCardDetail}>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Repellat est, debitis eligendi eius recusandae quisquam facilis
-                earum ipsa, perspiciatis quia doloremque exercitationem
-                repellendus quo totam modi sequi eum molestias quasi.
+                {movieData.deskripsi}
               </Text>
             </View>
             <TouchableHighlight style={styles.backButton} underlayColor="#ccc">

@@ -10,6 +10,7 @@ const Header = () => {
         source={require('../../assets/menu.png')}
         style={stylesHeader.menuHeaderImage}
       />
+
       <Text style={stylesHeader.titleHeader}>Movie App</Text>
       <Image
         source={require('../../assets/favorite.png')}

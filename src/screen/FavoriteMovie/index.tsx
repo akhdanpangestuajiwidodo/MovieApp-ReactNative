@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {FlatList, ListRenderItem, SafeAreaView} from 'react-native';
 import Card from '../../component/Card';
@@ -44,11 +45,12 @@ const DATA: typeMovieData[] = [
   },
 ];
 
-const renderItem: ListRenderItem<typeMovieData> = ({item}) => (
-  <Card movieData={item} />
-);
-
 const FavoriteMovie = () => {
+  const navigation = useNavigation();
+
+  const renderItem: ListRenderItem<typeMovieData> = ({item}) => (
+    <Card movieData={item} navigation={navigation} />
+  );
   return (
     <SafeAreaView style={styles.parentStyle}>
       <HeaderFavorite />

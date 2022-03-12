@@ -31,6 +31,11 @@ const stylesCard = StyleSheet.create({
     fontSize: 24,
     marginRight: 7,
   },
+  ratingContainer: {
+    justifyContent: 'flex-start',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
 });
 
 export default stylesCard;

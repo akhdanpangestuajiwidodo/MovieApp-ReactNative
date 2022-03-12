@@ -10,15 +10,23 @@ interface typeMovieData {
   rating: string;
   durasi: string;
   direktur: string;
+  deskripsi: string;
 }
 
 interface typeNav {
   navigate: Function;
+  goBack: Function;
 }
-const Card = (props: {movieData: typeMovieData; navigation: typeNav}) => {
-  const {movieData, navigation} = props;
+const Card = ({
+  movieData,
+  navigation,
+}: {
+  movieData: typeMovieData;
+  navigation: typeNav;
+}) => {
   return (
-    <Pressable onPress={() => navigation.navigate('Detail')}>
+    <Pressable
+      onPress={() => navigation.navigate('Detail', {movieData: movieData})}>
       <View style={stylesCard.card}>
         <View style={stylesCard.cardContent}>
           <Image
@@ -37,12 +45,7 @@ const Card = (props: {movieData: typeMovieData; navigation: typeNav}) => {
                 Duration: {movieData.durasi} min
               </Text>
             </View>
-            <View
-              style={{
-                justifyContent: 'flex-start',
-                flexDirection: 'row',
-                alignItems: 'center',
-              }}>
+            <View style={stylesCard.ratingContainer}>
               <Text style={stylesCard.cardRatingText}>{movieData.rating}</Text>
               <Image
                 source={require('../../assets/star.png')}

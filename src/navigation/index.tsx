@@ -11,7 +11,10 @@ const Stack = createNativeStackNavigator();
 const Navigation = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Detail" component={DetailMovie} />
         <Stack.Screen name="Favorite" component={FavoriteMovie} />
