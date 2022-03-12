@@ -52,9 +52,9 @@ const DATA: typeMovieData[] = [
   },
 ];
 
-const FavoriteMovie = ({navigation}) => {
+const FavoriteMovie = () => {
   const renderItem: ListRenderItem<typeMovieData> = ({item}) => (
-    <Card movieData={item} navigation={navigation} />
+    <Card movieData={item} />
   );
   return (
     <SafeAreaView style={styles.parentStyle}>

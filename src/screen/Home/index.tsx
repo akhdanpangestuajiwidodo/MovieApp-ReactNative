@@ -61,8 +61,6 @@ const DATA: typeMovieData[] = [
 ];
 
 const Home = () => {
-  const navigation = useNavigation();
-  console.log(navigation);
   const renderItem: ListRenderItem<typeMovieData> = ({item}) => (
     <Card movieData={item} />
   );

@@ -1,15 +1,19 @@
 /* eslint-disable prettier/prettier */
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import {Image, Text, View} from 'react-native';
+import {Image, Pressable, Text, View} from 'react-native';
 import stylesHeader from './styles';
 
 const HeaderFavorite = () => {
+  const navigation = useNavigation();
   return (
     <View style={stylesHeader.containerHeader}>
-      <Image
-        source={require('../../assets/back.png')}
-        style={stylesHeader.menuHeaderImage}
-      />
+      <Pressable onPress={() => navigation.goBack()}>
+        <Image
+          source={require('../../assets/back.png')}
+          style={stylesHeader.menuHeaderImage}
+        />
+      </Pressable>
       <Text style={stylesHeader.titleHeader}>Favorite Movie</Text>
     </View>
   );
