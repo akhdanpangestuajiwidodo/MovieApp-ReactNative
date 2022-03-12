@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {Image, Pressable, Text, View} from 'react-native';
 import stylesCard from './styles';
@@ -25,8 +24,6 @@ const Card = ({
   movieData: typeMovieData;
   navigation: typeNav;
 }) => {
-  const navigate1 = useNavigation();
-  console.log('NavigationB', navigate1);
   return (
     <Pressable
       onPress={() => navigation.navigate('Detail', {movieData: movieData})}>
