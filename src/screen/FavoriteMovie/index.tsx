@@ -13,6 +13,7 @@ interface typeMovieData {
   rating: string;
   durasi: string;
   direktur: string;
+  deskripsi: string;
 }
 
 const DATA: typeMovieData[] = [
@@ -24,6 +25,8 @@ const DATA: typeMovieData[] = [
     rating: '8.0',
     durasi: '30',
     direktur: 'Akhdan',
+    deskripsi:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis dolorum fugit dolore dolorem est! Inventore placeat omnis praesentium ratione itaque dolorum ad non magnam alias perferendis! Quod ad beatae quo!',
   },
   {
     id: '2',
@@ -33,6 +36,8 @@ const DATA: typeMovieData[] = [
     rating: '9.0',
     durasi: '50',
     direktur: 'Kak Vito',
+    deskripsi:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis dolorum fugit dolore dolorem est! Inventore placeat omnis praesentium ratione itaque dolorum ad non magnam alias perferendis! Quod ad beatae quo!',
   },
   {
     id: '3',
@@ -42,12 +47,12 @@ const DATA: typeMovieData[] = [
     rating: '7.0',
     durasi: '100',
     direktur: 'Dwika',
+    deskripsi:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis dolorum fugit dolore dolorem est! Inventore placeat omnis praesentium ratione itaque dolorum ad non magnam alias perferendis! Quod ad beatae quo!',
   },
 ];
 
-const FavoriteMovie = () => {
-  const navigation = useNavigation();
-
+const FavoriteMovie = ({navigation}) => {
   const renderItem: ListRenderItem<typeMovieData> = ({item}) => (
     <Card movieData={item} navigation={navigation} />
   );

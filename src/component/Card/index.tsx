@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {Image, Pressable, Text, View} from 'react-native';
 import stylesCard from './styles';
@@ -13,20 +14,14 @@ interface typeMovieData {
   deskripsi: string;
 }
 
-interface typeNav {
-  navigate: Function;
-  goBack: Function;
-}
-const Card = ({
-  movieData,
-  navigation,
-}: {
-  movieData: typeMovieData;
-  navigation: typeNav;
-}) => {
+const Card = ({movieData}: {movieData: typeMovieData}) => {
+  const navigate1 = useNavigation();
+  console.log('NavigationB', navigate1);
   return (
     <Pressable
-      onPress={() => navigation.navigate('Detail', {movieData: movieData})}>
+      onPress={() =>
+        navigate1.navigate('Detail' as never, {movieData: movieData} as never)
+      }>
       <View style={stylesCard.card}>
         <View style={stylesCard.cardContent}>
           <Image

@@ -22,7 +22,7 @@ const DetailMovie = ({route, navigation}) => {
         resizeMode="cover"
         style={styles.image}>
         <View style={styles.parentDetailContainer}>
-          <HeaderDetail navigation={navigation} />
+          <HeaderDetail />
           <View style={styles.cardDetail}>
             <View style={styles.containerInternalCard}>
               <Text style={styles.titleCardDetail}>{movieData.judul}</Text>
