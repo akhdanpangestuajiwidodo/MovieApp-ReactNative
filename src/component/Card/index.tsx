@@ -14,13 +14,22 @@ interface typeMovieData {
   deskripsi: string;
 }
 
-const Card = ({movieData}: {movieData: typeMovieData}) => {
-  const navigate = useNavigation();
+interface typeNav {
+  navigate: Function;
+  goBack: Function;
+}
+const Card = ({
+  movieData,
+  navigation,
+}: {
+  movieData: typeMovieData;
+  navigation: typeNav;
+}) => {
+  const navigate1 = useNavigation();
+  console.log('NavigationB', navigate1);
   return (
     <Pressable
-      onPress={() =>
-        navigate.navigate('Detail' as never, {movieData: movieData} as never)
-      }>
+      onPress={() => navigation.navigate('Detail', {movieData: movieData})}>
       <View style={stylesCard.card}>
         <View style={stylesCard.cardContent}>
           <Image
@@ -31,16 +40,20 @@ const Card = ({movieData}: {movieData: typeMovieData}) => {
           />
           <View>
             <Text style={stylesCard.cardTitle}>{movieData.judul}</Text>
+
             <View style={stylesCard.cardMiddleContainer}>
               <Text style={stylesCard.cardMiddleText}>
                 Director: {movieData.direktur}
               </Text>
+
               <Text style={stylesCard.cardMiddleText}>
                 Duration: {movieData.durasi} min
               </Text>
             </View>
+
             <View style={stylesCard.ratingContainer}>
               <Text style={stylesCard.cardRatingText}>{movieData.rating}</Text>
+
               <Image
                 source={require('../../assets/star.png')}
                 style={stylesCard.imageStar}
