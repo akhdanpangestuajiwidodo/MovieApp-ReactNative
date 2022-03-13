@@ -83,7 +83,9 @@ const Home = ({navigation}: any) => {
       <Header navigation={navigation} />
       <SearchBar />
       <Text style={style.titleNew}>Trending Now</Text>
-      <MyCarousel />
+      <ScrollView scrollEnabled={false}>
+        <MyCarousel />
+      </ScrollView>
       <Text style={style.titleCategory}>Popular</Text>
       <FlatList
         data={dataMovie}

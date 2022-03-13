@@ -92,13 +92,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginLeft: -20,
+    height: 500,
   },
   title: {
     fontSize: 12,
   },
   item: {
     width: screenWidth - 60,
-    height: 170,
+    height: 160,
   },
   imageContainer: {
     flex: 1,
