@@ -36,35 +36,34 @@ const DetailMovie = ({route, navigation}: any) => {
     [],
   );
 
-  const getData = async () => {
+  // const getData = async () => {
+  //   try {
+  //     const jsonValue = await AsyncStorage.getItem('@favorites');
+  //     if (jsonValue !== null) {
+  //       let newData = JSON.parse(jsonValue as string);
+  //       setDataFavoriteMovie(newData);
+  //       console.log('data ada');
+  //     } else {
+  //       console.log('data kosong');
+  //       return [];
+  //     }
+  //   } catch (e) {
+  //     // error reading value
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   getData();
+  // }, []);
+
+  const storeData = async (value: TypeOfMovieData) => {
     try {
       const jsonValue = await AsyncStorage.getItem('@favorites');
-      if (jsonValue !== null) {
-        let newData = JSON.parse(jsonValue as string);
-        setDataFavoriteMovie(newData);
-        console.log('data ada');
-      } else {
-        console.log('data kosong');
-        return [];
-      }
-    } catch (e) {
-      // error reading value
-    }
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
-
-  const storeData = async (value: any) => {
-    try {
-      const data = [...dataFavoriteMovie];
+      const data = jsonValue != null ? JSON.parse(jsonValue) : [];
       data.push(value);
-      setDataFavoriteMovie(data);
-      const jsonValue = JSON.stringify(value);
-      await AsyncStorage.setItem('@favorites', jsonValue);
+      await AsyncStorage.setItem('@favorites', JSON.stringify(data));
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
   };
 
