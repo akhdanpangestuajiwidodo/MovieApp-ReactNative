@@ -1,11 +1,13 @@
 /* eslint-disable prettier/prettier */
 import React, {useEffect, useState} from 'react';
 import {
+  ActivityIndicator,
   FlatList,
   ListRenderItem,
   SafeAreaView,
   ScrollView,
   Text,
+  View,
 } from 'react-native';
 import style from './styles';
 import Card from '../../component/Card';
@@ -33,25 +35,43 @@ interface TypeOfMovieData {
 
 const Home = ({navigation}: any) => {
   //Handle Data Movie
-  const [dataMovie, setDataMovie] = useState([]);
+  const [dataMovie, setDataMovie] = useState<TypeOfMovieData[]>([]);
 
   //Handle Page Movie
   const [pageMovie, setPageMovie] = useState(1);
 
+  //Handle Loading
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     getData();
-  }, []);
+  }, [pageMovie]);
 
   const getData = () => {
+    setIsLoading(true);
     getNowPlaying(pageMovie)
       .then(response => {
         if (response.statusCode === 200) {
-          setDataMovie(response.dataMovie.results);
+          setDataMovie([...dataMovie, ...response.dataMovie.results]);
+          setIsLoading(false);
         }
       })
       .catch(error => {
         console.log('error', error);
       });
+  };
+
+  const renderLoader = () => {
+    return isLoading ? (
+      <View style={style.loader}>
+        <ActivityIndicator size="large" color="#aaa" />
+      </View>
+    ) : null;
+  };
+
+  const fetchMore = () => {
+    setPageMovie(pageMovie + 1);
+    console.log(pageMovie);
   };
 
   const renderItem: ListRenderItem<TypeOfMovieData> = ({item}) => (
@@ -60,19 +80,21 @@ const Home = ({navigation}: any) => {
 
   return (
     <SafeAreaView style={style.parentStyle}>
-      <ScrollView>
-        <Header navigation={navigation} />
-        <SearchBar />
-        <Text style={style.titleNew}>Trending Now</Text>
-        <MyCarousel />
-        <Text style={style.titleCategory}>Popular</Text>
-        <FlatList
-          data={dataMovie}
-          renderItem={renderItem}
-          keyExtractor={item => `${item.id}`}
-          scrollEnabled={false}
-        />
-      </ScrollView>
+      <Header navigation={navigation} />
+      <SearchBar />
+      <Text style={style.titleNew}>Trending Now</Text>
+      <MyCarousel />
+      <Text style={style.titleCategory}>Popular</Text>
+      <FlatList
+        data={dataMovie}
+        renderItem={renderItem}
+        keyExtractor={item => `${item.id}`}
+        ListFooterComponent={renderLoader}
+        scrollEnabled={true}
+        onEndReachedThreshold={0.5}
+        onEndReached={fetchMore}
+        // onMomentumScrollBegin={false}
+      />
     </SafeAreaView>
   );
 };

@@ -16,6 +16,10 @@ const style = StyleSheet.create({
     marginBottom: 28,
     fontWeight: '800',
   },
+  loader: {
+    marginVertical: 0,
+    alignItems: 'center',
+  },
 });
 
 export default style;
