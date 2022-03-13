@@ -1,4 +1,3 @@
-/* eslint-disable handle-callback-err */
 /* eslint-disable prettier/prettier */
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {useEffect, useState} from 'react';
@@ -29,7 +28,7 @@ const FavoriteMovie = ({navigation}: any) => {
   //Use State data favorite image
   const [dataFavoriteMovie, setDataFavoriteMovie] = useState(result);
 
-  const getData2 = async () => {
+  const getData = async () => {
     try {
       const jsonValue = await AsyncStorage.getItem('@favorites');
       if (jsonValue !== null) {
@@ -45,7 +44,7 @@ const FavoriteMovie = ({navigation}: any) => {
   };
 
   useEffect(() => {
-    getData2();
+    getData();
   }, []);
 
   const renderItem: ListRenderItem<TypeOfMovieData> = ({item}) => (
