@@ -4,7 +4,7 @@ import {StyleSheet} from 'react-native';
 const stylesHeader = StyleSheet.create({
   containerHeader: {
     marginTop: 10,
-    marginBottom: '40%',
+    marginBottom: '50%',
     justifyContent: 'space-between',
     flexDirection: 'row',
     padding: 10,

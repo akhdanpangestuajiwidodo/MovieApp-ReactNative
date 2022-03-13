@@ -16,7 +16,7 @@ const DetailMovie = ({route, navigation}: any) => {
     <View style={styles.container}>
       <ImageBackground
         source={{
-          uri: `${movieData.gambar}`,
+          uri: `https://www.themoviedb.org/t/p/w440_and_h660_face/${movieData.poster_path}`,
         }}
         resizeMode="cover"
         style={styles.image}>
@@ -24,10 +24,19 @@ const DetailMovie = ({route, navigation}: any) => {
           <HeaderDetail navigation={navigation} />
           <View style={styles.cardDetail}>
             <View style={styles.containerInternalCard}>
-              <Text style={styles.titleCardDetail}>{movieData.judul}</Text>
-              <Text style={styles.ratingCardDetail}>{movieData.rating}</Text>
+              <Text style={styles.titleCardDetail}>{movieData.title}</Text>
+              <View style={styles.ratingContainer}>
+                <Text style={styles.cardRatingText}>
+                  {movieData.vote_average}
+                </Text>
+
+                <Image
+                  source={require('../../assets/star.png')}
+                  style={styles.imageStar}
+                />
+              </View>
               <Text style={styles.deskripsiCardDetail}>
-                {movieData.deskripsi}
+                {movieData.overview}
               </Text>
             </View>
             <TouchableHighlight style={styles.backButton} underlayColor="#ccc">

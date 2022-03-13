@@ -34,7 +34,12 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     marginVertical: 10,
   },
-  deskripsiCardDetail: {fontSize: 12, color: '#525A62', fontWeight: '600'},
+  deskripsiCardDetail: {
+    fontSize: 12,
+    color: '#525A62',
+    fontWeight: '600',
+    marginTop: '2%',
+  },
   parentCardContainer: {
     paddingHorizontal: 8,
     marginHorizontal: 10,
@@ -67,6 +72,19 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingTop: 24,
     paddingBottom: 14,
+  },
+  imageStar: {width: 12, height: 12, marginTop: 4},
+  cardRatingText: {
+    color: '#E3C74F',
+    fontWeight: '700',
+    fontSize: 18,
+    marginRight: 7,
+  },
+  ratingContainer: {
+    marginTop: '2%',
+    justifyContent: 'flex-start',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });
 
