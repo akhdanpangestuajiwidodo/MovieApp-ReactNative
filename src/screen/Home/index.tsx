@@ -12,9 +12,7 @@ import Card from '../../component/Card';
 import Header from '../../component/Header';
 import SearchBar from '../../component/SearchBar';
 import MyCarousel from '../../component/Carousel';
-import axios from 'axios';
 import {getNowPlaying} from '../../services/movieService';
-import {getOngoingMovie} from '../../services/cobaServices';
 
 interface TypeOfMovieData {
   adult: boolean;
