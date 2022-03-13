@@ -12,6 +12,7 @@ import Card from '../../component/Card';
 import Header from '../../component/Header';
 import SearchBar from '../../component/SearchBar';
 import MyCarousel from '../../component/Carousel';
+import axios from 'axios';
 
 interface typeMovieData {
   id: string;
@@ -60,6 +61,11 @@ const DATA: typeMovieData[] = [
 ];
 
 const Home = ({navigation}: any) => {
+  const getData = async () => {
+    try {
+      const res = await axios.get;
+    } catch (error) {}
+  };
   const renderItem: ListRenderItem<typeMovieData> = ({item}) => (
     <Card movieData={item} navigation={navigation} />
   );
