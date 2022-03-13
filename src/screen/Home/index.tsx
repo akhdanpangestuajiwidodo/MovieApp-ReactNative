@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   FlatList,
   ListRenderItem,
@@ -13,6 +13,7 @@ import Header from '../../component/Header';
 import SearchBar from '../../component/SearchBar';
 import MyCarousel from '../../component/Carousel';
 import axios from 'axios';
+import {getNowPlaying} from '../../services/movieService';
 
 interface typeMovieData {
   id: string;
@@ -61,29 +62,45 @@ const DATA: typeMovieData[] = [
 ];
 
 const Home = ({navigation}: any) => {
-  const getData = async () => {
-    try {
-      const res = await axios.get;
-    } catch (error) {}
+  //Handle Data Movie
+  const [dataMovie, setDataMovie] = useState([]);
+
+  //Handle Page Movie
+  const [pageMovie, setPageMovie] = useState(1);
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = () => {
+    getNowPlaying(pageMovie)
+      .then(response => {
+        if (response.statusCode === 200) {
+          console.log('Data masuk', response.dataMovie);
+        }
+      })
+      .catch(error => {
+        console.log('error', error);
+      });
   };
+
   const renderItem: ListRenderItem<typeMovieData> = ({item}) => (
     <Card movieData={item} navigation={navigation} />
   );
+
   return (
     <SafeAreaView style={style.parentStyle}>
-      <ScrollView>
-        <Header navigation={navigation} />
-        <SearchBar />
-        <Text style={style.titleNew}>Trending Now</Text>
-        <MyCarousel />
-        <Text style={style.titleCategory}>Popular</Text>
-        <FlatList
-          data={DATA}
-          renderItem={renderItem}
-          keyExtractor={item => item.id}
-          scrollEnabled={false}
-        />
-      </ScrollView>
+      <Header navigation={navigation} />
+      <SearchBar />
+      <Text style={style.titleNew}>Trending Now</Text>
+      <MyCarousel />
+      <Text style={style.titleCategory}>Popular</Text>
+      <FlatList
+        data={DATA}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+        scrollEnabled={false}
+      />
     </SafeAreaView>
   );
 };

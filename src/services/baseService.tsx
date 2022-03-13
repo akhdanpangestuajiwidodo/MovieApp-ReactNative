@@ -4,7 +4,7 @@ import axios from 'axios';
 //BASE_URL API
 const BASE_URL = 'https://api.themoviedb.org/3/';
 
-export const doGet = (param: string) => {
+export const doGet = (param: any) => {
   return axios({
     method: 'get',
     url: BASE_URL + param,
@@ -12,13 +12,13 @@ export const doGet = (param: string) => {
     .then(response => {
       return {
         statusCode: response.status,
-        data: response.data,
+        dataMovie: response.data,
       };
     })
     .catch(error => {
       return {
         statusCode: error.response.data.status_code,
-        data: error.response.data,
+        dataMovie: error.response.data,
       };
     });
 };

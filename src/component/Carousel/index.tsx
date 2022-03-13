@@ -58,7 +58,6 @@ const MyCarousel = () => {
     {item}: {item: TypeDataMovie},
     parallaxProps?: AdditionalParallaxProps,
   ) => {
-    console.log(item);
     return (
       <View style={styles.item}>
         <ParallaxImage
