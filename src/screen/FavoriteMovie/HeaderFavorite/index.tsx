@@ -12,7 +12,7 @@ const HeaderFavorite = ({navigation}: {navigation: typeNav}) => {
     <View style={stylesHeader.containerHeader}>
       <Pressable onPress={() => navigation.goBack()}>
         <Image
-          source={require('../../assets/back.png')}
+          source={require('../../../assets/back.png')}
           style={stylesHeader.menuHeaderImage}
         />
       </Pressable>

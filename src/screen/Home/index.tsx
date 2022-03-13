@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable prettier/prettier */
 import React, {useEffect, useState} from 'react';
 import {
@@ -11,9 +12,9 @@ import {
 } from 'react-native';
 import style from './styles';
 import Card from '../../component/Card';
-import Header from '../../component/Header';
-import SearchBar from '../../component/SearchBar';
-import MyCarousel from '../../component/Carousel';
+import Header from './Header';
+import SearchBar from './SearchBar';
+import MyCarousel from './Carousel';
 import {getNowPlaying} from '../../services/movieService';
 
 interface TypeOfMovieData {

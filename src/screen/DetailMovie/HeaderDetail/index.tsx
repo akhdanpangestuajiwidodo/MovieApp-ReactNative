@@ -15,7 +15,7 @@ const HeaderDetail = ({navigation}: {navigation: typeNav}) => {
         underlayColor="#ccc"
         onPress={() => navigation.goBack()}>
         <Image
-          source={require('../../assets/back.png')}
+          source={require('../../../assets/back.png')}
           style={stylesHeader.menuHeaderImage}
         />
       </TouchableHighlight>

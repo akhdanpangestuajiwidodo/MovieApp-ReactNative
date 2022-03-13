@@ -8,7 +8,7 @@ const SearchBar = () => {
     <View style={styles.container}>
       <View style={styles.SectionStyle}>
         <Image
-          source={require('../../assets/search.png')}
+          source={require('../../../assets/search.png')}
           style={styles.ImageStyle}
         />
 

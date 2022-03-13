@@ -12,13 +12,13 @@ const Header = ({navigation}: {navigation: typeNav}) => {
   return (
     <View style={stylesHeader.containerHeader}>
       <Image
-        source={require('../../assets/menu.png')}
+        source={require('../../../assets/menu.png')}
         style={stylesHeader.menuHeaderImage}
       />
       <Text style={stylesHeader.titleHeader}>Movie App</Text>
       <Pressable onPress={() => navigation.navigate('Favorite' as never)}>
         <Image
-          source={require('../../assets/favorite.png')}
+          source={require('../../../assets/favorite.png')}
           style={stylesHeader.favoriteHeaderImage}
         />
       </Pressable>
