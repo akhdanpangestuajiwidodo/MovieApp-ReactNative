@@ -4,7 +4,7 @@ import axios from 'axios';
 //BASE_URL API
 const BASE_URL = 'https://api.themoviedb.org/3/';
 
-export const doGet = param => {
+export const doGet = (param: string) => {
   return axios({
     method: 'get',
     url: BASE_URL + param,
