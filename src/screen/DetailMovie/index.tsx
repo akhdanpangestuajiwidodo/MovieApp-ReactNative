@@ -9,7 +9,7 @@ import {
   View,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import HeaderDetail from '../../component/HeaderDetail';
+import HeaderDetail from './HeaderDetail';
 import styles from './styles';
 
 interface TypeOfMovieData {
@@ -76,7 +76,6 @@ const DetailMovie = ({route, navigation}: any) => {
   const storeData = async (value: TypeOfMovieData) => {
     try {
       const dataBaru = [...dataFavoriteMovie];
-      // const existData = dataBaru.find(v => v.id === value.id);
       let textAlert;
       let subTextAlert;
       if (statusIsFavorite === true) {

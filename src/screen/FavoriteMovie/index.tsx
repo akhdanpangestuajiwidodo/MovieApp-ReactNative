@@ -2,16 +2,9 @@
 /* eslint-disable prettier/prettier */
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {useEffect, useState} from 'react';
-import {
-  Button,
-  FlatList,
-  ListRenderItem,
-  Pressable,
-  SafeAreaView,
-  Text,
-} from 'react-native';
+import {FlatList, ListRenderItem, SafeAreaView} from 'react-native';
 import Card from '../../component/Card';
-import HeaderFavorite from '../../component/HeaderFavorite';
+import HeaderFavorite from './HeaderFavorite';
 import styles from './styles';
 
 interface TypeOfMovieData {
@@ -50,19 +43,6 @@ const FavoriteMovie = ({navigation}: any) => {
       // error reading value
     }
   };
-
-  // //getData
-  // const getData = async () => {
-  //   AsyncStorage.getAllKeys((err, keys) => {
-  //     AsyncStorage.multiGet(keys, (error, stores) => {
-  //       console.log(stores?.length);
-  //       stores.map((result, i, store) => {
-  //         console.log('Dataku', {[store[i][0]]: store[i][1]});
-  //         return true;
-  //       });
-  //     });
-  //   });
-  // };
 
   useEffect(() => {
     getData2();
