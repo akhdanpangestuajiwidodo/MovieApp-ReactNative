@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, {useEffect, useState} from 'react';
 import {
+  Alert,
   Image,
   ImageBackground,
   Text,
@@ -36,32 +37,66 @@ const DetailMovie = ({route, navigation}: any) => {
     [],
   );
 
-  // const getData = async () => {
-  //   try {
-  //     const jsonValue = await AsyncStorage.getItem('@favorites');
-  //     if (jsonValue !== null) {
-  //       let newData = JSON.parse(jsonValue as string);
-  //       setDataFavoriteMovie(newData);
-  //       console.log('data ada');
-  //     } else {
-  //       console.log('data kosong');
-  //       return [];
-  //     }
-  //   } catch (e) {
-  //     // error reading value
-  //   }
-  // };
+  //Use state for change button add favorite
+  const [statusIsFavorite, setStatusFavorite] = useState(false);
 
-  // useEffect(() => {
-  //   getData();
-  // }, []);
+  const getData = async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem('@favorites');
+      if (jsonValue !== null) {
+        let newData = JSON.parse(jsonValue as string);
+        setDataFavoriteMovie(newData);
+        return newData;
+      } else {
+        console.log('data kosong');
+        return [];
+      }
+    } catch (e) {
+      // error reading value
+    }
+  };
+
+  useEffect(() => {
+    getData().then(e => {
+      for (var product of e) {
+        if (product.id === movieData.id) {
+          setStatusFavorite(true);
+        } else {
+          console.log('tidak sama');
+        }
+      }
+    });
+  }, []);
+
+  const createThreeButtonAlert = (textAlert: string, subTextAlert: string) =>
+    Alert.alert(textAlert, subTextAlert, [
+      {text: 'OK', onPress: () => console.log('OK Pressed')},
+    ]);
 
   const storeData = async (value: TypeOfMovieData) => {
     try {
-      const jsonValue = await AsyncStorage.getItem('@favorites');
-      const data = jsonValue != null ? JSON.parse(jsonValue) : [];
-      data.push(value);
-      await AsyncStorage.setItem('@favorites', JSON.stringify(data));
+      const dataBaru = [...dataFavoriteMovie];
+      // const existData = dataBaru.find(v => v.id === value.id);
+      let textAlert;
+      let subTextAlert;
+      if (statusIsFavorite === true) {
+        const contactIndex = dataFavoriteMovie.findIndex(
+          movie => movie.id === value.id,
+        );
+        dataBaru.splice(contactIndex, 1);
+        await AsyncStorage.setItem('@favorites', JSON.stringify(dataBaru));
+        setStatusFavorite(false);
+        textAlert = 'Berhasil Di Hapus';
+        subTextAlert = 'Yuk cari film lagi';
+        createThreeButtonAlert(textAlert, subTextAlert);
+      } else {
+        dataBaru.push(value);
+        await AsyncStorage.setItem('@favorites', JSON.stringify(dataBaru));
+        setStatusFavorite(true);
+        textAlert = 'Berhasil Di Simpan';
+        subTextAlert = 'Yuk cari film lagi';
+        createThreeButtonAlert(textAlert, subTextAlert);
+      }
     } catch (e) {
       console.error(e);
     }
@@ -94,15 +129,27 @@ const DetailMovie = ({route, navigation}: any) => {
                 {movieData.overview}
               </Text>
             </View>
-            <TouchableHighlight
-              style={styles.backButton}
-              underlayColor="#ccc"
-              onPress={() => storeData(movieData)}>
-              <Image
-                source={require('../../assets/favorite.png')}
-                style={styles.favImage}
-              />
-            </TouchableHighlight>
+            {statusIsFavorite === true ? (
+              <TouchableHighlight
+                style={styles.backButton}
+                underlayColor="#ccc"
+                onPress={() => storeData(movieData)}>
+                <Image
+                  source={require('../../assets/heart.png')}
+                  style={styles.favImage}
+                />
+              </TouchableHighlight>
+            ) : (
+              <TouchableHighlight
+                style={styles.backButtonWhite}
+                underlayColor="#ccc"
+                onPress={() => storeData(movieData)}>
+                <Image
+                  source={require('../../assets/favorite.png')}
+                  style={styles.favImage}
+                />
+              </TouchableHighlight>
+            )}
           </View>
           <View style={styles.cardDetail}>
             <View style={styles.containerInternalCard}>
