@@ -2,16 +2,7 @@
 import React from 'react';
 import {Image, Pressable, Text, View} from 'react-native';
 import stylesCard from './styles';
-
-// interface typeMovieData {
-//   id: string;
-//   judul: string;
-//   gambar: string;
-//   rating: string;
-//   durasi: string;
-//   direktur: string;
-//   deskripsi: string;
-// }
+import {formatDate} from '../../utils/utils';
 
 interface TypeOfMovieData {
   adult: boolean;
@@ -59,7 +50,8 @@ const Card = ({
 
             <View style={stylesCard.cardMiddleContainer}>
               <Text style={stylesCard.cardMiddleText}>
-                Release Date: {movieData.release_date}
+                {formatDate(`${movieData.release_date}`)} |{' '}
+                {movieData.original_language}
               </Text>
             </View>
 
