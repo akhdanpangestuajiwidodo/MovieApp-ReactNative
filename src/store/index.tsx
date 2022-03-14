@@ -6,3 +6,5 @@ import themeReducer from '../reducers/indext';
 const rootReducer = combineReducers({themeReducer});
 
 export const Store = createStore(rootReducer, applyMiddleware(thunk));
+
+export type RootState = ReturnType<typeof rootReducer>;

@@ -8,13 +8,27 @@ interface typeNav {
   goBack: Function;
 }
 
-const Header = ({navigation}: {navigation: typeNav}) => {
+type typeChangeTheme = {
+  changeTheme: () => void;
+};
+
+const Header = ({
+  navigation,
+  changeTheme,
+}: {
+  navigation: typeNav;
+  changeTheme: () => void;
+}) => {
+  console.log(changeTheme);
   return (
     <View style={stylesHeader.containerHeader}>
-      <Image
-        source={require('../../../assets/menu.png')}
-        style={stylesHeader.menuHeaderImage}
-      />
+      <Pressable onPress={changeTheme}>
+        <Image
+          source={require('../../../assets/menu.png')}
+          style={stylesHeader.menuHeaderImage}
+        />
+      </Pressable>
+
       <Text style={stylesHeader.titleHeader}>Movie App</Text>
       <Pressable onPress={() => navigation.navigate('Favorite' as never)}>
         <Image

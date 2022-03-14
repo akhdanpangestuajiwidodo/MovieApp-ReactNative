@@ -16,6 +16,9 @@ import Header from './Header';
 import SearchBar from './SearchBar';
 import MyCarousel from './Carousel';
 import {getNowPlaying} from '../../services/movieService';
+import {useSelector, useDispatch} from 'react-redux';
+import {setTheme} from '../../actions';
+import {RootState} from '../../store';
 
 interface TypeOfMovieData {
   adult: boolean;
@@ -35,6 +38,18 @@ interface TypeOfMovieData {
 }
 
 const Home = ({navigation}: any) => {
+  const {theme} = useSelector((state: RootState) => state.themeReducer);
+
+  const dispatch = useDispatch();
+
+  const changeTheme = () => {
+    if (theme == 'light') {
+      dispatch(setTheme('dark'));
+    } else {
+      dispatch(setTheme('light'));
+    }
+  };
+
   //Handle Data Movie
   const [dataMovie, setDataMovie] = useState<TypeOfMovieData[]>([]);
 
@@ -80,14 +95,22 @@ const Home = ({navigation}: any) => {
   );
 
   return (
-    <SafeAreaView style={style.parentStyle}>
-      <Header navigation={navigation} />
+    <SafeAreaView
+      style={theme === 'light' ? style.parentStyle : style.parentStyleWhite}>
+      <Header navigation={navigation} changeTheme={changeTheme} />
       <SearchBar />
-      <Text style={style.titleNew}>Trending Now</Text>
+      <Text style={theme === 'light' ? style.titleNew : style.titleNewLight}>
+        Trending Now
+      </Text>
       <ScrollView scrollEnabled={false}>
         <MyCarousel />
       </ScrollView>
-      <Text style={style.titleCategory}>Popular</Text>
+      <Text
+        style={
+          theme === 'light' ? style.titleCategory : style.titleCategoryLight
+        }>
+        Popular
+      </Text>
       <FlatList
         data={dataMovie}
         renderItem={renderItem}
