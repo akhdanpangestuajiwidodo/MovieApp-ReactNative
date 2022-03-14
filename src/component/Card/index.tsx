@@ -52,8 +52,10 @@ const Card = ({
               uri: `https://www.themoviedb.org/t/p/w440_and_h660_face/${movieData.poster_path}`,
             }}
           />
-          <View>
-            <Text style={stylesCard.cardTitle}>{movieData.title}</Text>
+          <View style={{flex: 1}}>
+            <Text style={stylesCard.cardTitle} numberOfLines={1}>
+              {movieData.title}
+            </Text>
 
             <View style={stylesCard.cardMiddleContainer}>
               <Text style={stylesCard.cardMiddleText}>
