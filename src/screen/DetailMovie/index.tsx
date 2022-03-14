@@ -11,6 +11,8 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import HeaderDetail from './HeaderDetail';
 import styles from './styles';
+import {RootState} from '../../store';
+import {useSelector} from 'react-redux';
 
 interface TypeOfMovieData {
   adult: boolean;
@@ -31,7 +33,8 @@ interface TypeOfMovieData {
 
 const DetailMovie = ({route, navigation}: any) => {
   const {movieData} = route.params;
-  console.log('data nav', navigation);
+
+  const {theme} = useSelector((state: RootState) => state.themeReducer);
 
   //Use State data favorite image
   const [dataFavoriteMovie, setDataFavoriteMovie] = useState<TypeOfMovieData[]>(
@@ -53,7 +56,7 @@ const DetailMovie = ({route, navigation}: any) => {
         return [];
       }
     } catch (e) {
-      // error reading value
+      console.log(e);
     }
   };
 
@@ -103,7 +106,7 @@ const DetailMovie = ({route, navigation}: any) => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={theme === 'light' ? styles.container : styles.containerWhite}>
       <ImageBackground
         source={{
           uri: `https://www.themoviedb.org/t/p/w440_and_h660_face/${movieData.poster_path}`,

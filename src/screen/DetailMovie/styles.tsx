@@ -6,6 +6,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#18172E',
   },
+  containerWhite: {
+    flex: 1,
+    backgroundColor: 'white',
+  },
   backButtonWhite: {
     borderRadius: 50 / 2,
     width: 50,
@@ -48,7 +52,7 @@ const styles = StyleSheet.create({
   },
   deskripsiCardDetail: {
     fontSize: 12,
-    color: '#525A62',
+    color: '#AEAEAE',
     fontWeight: '600',
     marginTop: '2%',
   },
@@ -62,7 +66,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   titleActor: {fontSize: 20, color: '#FDFEFF', fontWeight: 'bold'},
-  textSeeAll: {fontSize: 12, color: '#525A62', fontWeight: '600'},
+  textSeeAll: {fontSize: 12, color: '#AEAEAE', fontWeight: '600'},
   imageActorList: {
     flexDirection: 'row',
     justifyContent: 'space-between',

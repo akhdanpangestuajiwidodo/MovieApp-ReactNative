@@ -50,7 +50,6 @@ const FavoriteMovie = ({navigation}: any) => {
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
       getData();
-      //Put your Data loading function here instead of my loadData()
     });
 
     return unsubscribe;

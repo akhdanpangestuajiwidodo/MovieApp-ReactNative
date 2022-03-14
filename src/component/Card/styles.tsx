@@ -23,7 +23,7 @@ const stylesCard = StyleSheet.create({
   },
   cardTitle: {color: '#FDFEFFc1', fontWeight: 'bold', fontSize: 18},
   cardMiddleContainer: {marginVertical: 4},
-  cardMiddleText: {color: '#525A62', fontWeight: '600', fontSize: 12},
+  cardMiddleText: {color: '#AEAEAE', fontWeight: '600', fontSize: 12},
   imageStar: {width: 12, height: 12, marginTop: 4},
   cardRatingText: {
     color: '#E3C74F',
