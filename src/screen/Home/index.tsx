@@ -15,7 +15,7 @@ import Card from '../../component/Card';
 import Header from './Header';
 import SearchBar from './SearchBar';
 import MyCarousel from './Carousel';
-import {getNowPlaying} from '../../services/movieService';
+import {getNowPlaying, getTopMovie} from '../../services/movieService';
 import {useSelector, useDispatch} from 'react-redux';
 import {setTheme} from '../../actions';
 import {RootState} from '../../store';
@@ -53,6 +53,9 @@ const Home = ({navigation}: any) => {
   //Handle Data Movie
   const [dataMovie, setDataMovie] = useState<TypeOfMovieData[]>([]);
 
+  //Handle Data Movie
+  const [dataMovieTop, setDataMovieTop] = useState<TypeOfMovieData[]>([]);
+
   //Handle Page Movie
   const [pageMovie, setPageMovie] = useState(1);
 
@@ -69,6 +72,17 @@ const Home = ({navigation}: any) => {
       .then(response => {
         if (response.statusCode === 200) {
           setDataMovie([...dataMovie, ...response.dataMovie.results]);
+          setIsLoading(false);
+        }
+      })
+      .catch(error => {
+        console.log('error', error);
+      });
+
+    getTopMovie()
+      .then(response => {
+        if (response.statusCode === 200) {
+          setDataMovieTop(response.dataMovie.results);
           setIsLoading(false);
         }
       })
@@ -100,10 +114,10 @@ const Home = ({navigation}: any) => {
       <Header navigation={navigation} changeTheme={changeTheme} />
       <SearchBar />
       <Text style={theme === 'light' ? style.titleNew : style.titleNewLight}>
-        Trending Now
+        Top Movie
       </Text>
       <ScrollView scrollEnabled={false}>
-        <MyCarousel />
+        <MyCarousel topMovie={dataMovieTop} navigation={navigation} />
       </ScrollView>
       <Text
         style={

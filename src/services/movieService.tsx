@@ -8,3 +8,6 @@ export const getNowPlaying = (page: number) =>
   baseService.doGet(
     `movie/now_playing?api_key=${API_KEY}&language=en-US&page=${page}`,
   );
+
+export const getTopMovie = () =>
+  baseService.doGet(`movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`);

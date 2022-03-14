@@ -4,70 +4,66 @@ import Carousel, {
   AdditionalParallaxProps,
   ParallaxImage,
 } from 'react-native-snap-carousel';
-import {View, Dimensions, StyleSheet, Platform} from 'react-native';
+import {View, Dimensions, StyleSheet, Platform, Pressable} from 'react-native';
 
-interface TypeDataMovie {
+// interface TypeDataMovie {
+//   title: string;
+//   subtitle: string;
+//   illustration: string;
+// }
+
+interface TypeOfMovieData {
+  adult: boolean;
+  backdrop_path: string;
+  genre_ids: number[];
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  release_date: string;
   title: string;
-  subtitle: string;
-  illustration: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
 }
 
-const ENTRIES1 = [
-  {
-    title: 'Beautiful and dramatic Antelope Canyon',
-    subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-    illustration:
-      'https://static1.colliderimages.com/wordpress/wp-content/uploads/2022/01/The-Best-Movie-Franchises-To-Binge-Watch.jpg',
-  },
-  {
-    title: 'Earlier this morning, NYC',
-    subtitle: 'Lorem ipsum dolor sit amet',
-    illustration: 'https://i.ytimg.com/vi/Hi-kQn3ze4o/maxresdefault.jpg',
-  },
-  {
-    title: 'White Pocket Sunset',
-    subtitle: 'Lorem ipsum dolor sit amet et nuncat ',
-    illustration:
-      'https://img1.hotstarext.com/image/upload/f_auto,t_web_m_1x/sources/r1/cms/prod/2416/1112416-h-6c226c2e80b1',
-  },
-  {
-    title: 'Acrocorinth, Greece',
-    subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-    illustration: 'https://i.ytimg.com/vi/5o_sGQFrKDo/maxresdefault.jpg',
-  },
-  {
-    title: 'The lone tree, majestic landscape of New Zealand',
-    subtitle: 'Lorem ipsum dolor sit amet',
-    illustration:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQIuBhlOXTy7nlxAmlit-i57fVE8MOo_y2kQ&usqp=CAU',
-  },
-];
+interface typeNav {
+  navigate: Function;
+  goBack: Function;
+}
+
 const {width: screenWidth} = Dimensions.get('window');
 
-const MyCarousel = () => {
-  //Hooks data movie (array of object)
-  const [entries, setEntries] = useState<TypeDataMovie[]>([]);
-
+const MyCarousel = ({
+  topMovie,
+  navigation,
+}: {
+  topMovie: TypeOfMovieData[];
+  navigation: typeNav;
+}) => {
   const carouselRef = useRef(null);
 
-  useEffect(() => {
-    setEntries(ENTRIES1);
-  }, []);
-
   const renderItem = (
-    {item}: {item: TypeDataMovie},
+    {item}: {item: TypeOfMovieData},
     parallaxProps?: AdditionalParallaxProps,
   ) => {
     return (
-      <View style={styles.item}>
-        <ParallaxImage
-          source={{uri: item.illustration}}
-          containerStyle={styles.imageContainer}
-          style={styles.image}
-          parallaxFactor={0.1}
-          {...parallaxProps}
-        />
-      </View>
+      <Pressable
+        onPress={() => navigation.navigate('Detail', {movieData: item})}>
+        <View style={styles.item}>
+          <ParallaxImage
+            source={{
+              uri: `https://www.themoviedb.org/t/p/w440_and_h660_face/${item.poster_path}`,
+            }}
+            containerStyle={styles.imageContainer}
+            style={styles.image}
+            parallaxFactor={0.1}
+            {...parallaxProps}
+          />
+        </View>
+      </Pressable>
     );
   };
 
@@ -78,7 +74,7 @@ const MyCarousel = () => {
         sliderWidth={screenWidth}
         sliderHeight={screenWidth}
         itemWidth={screenWidth - 60}
-        data={entries}
+        data={topMovie}
         renderItem={renderItem}
         hasParallaxImages={true}
       />
