@@ -11,8 +11,9 @@ const stylesHeader = StyleSheet.create({
     paddingHorizontal: 10,
     alignItems: 'center',
   },
-  menuHeaderImage: {width: 23, height: 23, transform: [{scaleX: -1}]},
+  menuHeaderImage: {width: 25, height: 25, transform: [{scaleX: -1}]},
   titleHeader: {color: '#FDFEFF', fontWeight: '700', fontSize: 14},
+  titleHeaderLight: {color: '#050505', fontWeight: '700', fontSize: 14},
   favoriteHeaderImage: {width: 23, height: 23},
 });
 

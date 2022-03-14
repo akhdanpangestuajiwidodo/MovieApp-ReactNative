@@ -1,16 +1,14 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import {Image, Pressable, Text, View} from 'react-native';
+import {useSelector} from 'react-redux';
+import {RootState} from '../../../store';
 import stylesHeader from './styles';
 
 interface typeNav {
   navigate: Function;
   goBack: Function;
 }
-
-type typeChangeTheme = {
-  changeTheme: () => void;
-};
 
 const Header = ({
   navigation,
@@ -19,22 +17,36 @@ const Header = ({
   navigation: typeNav;
   changeTheme: () => void;
 }) => {
-  console.log(changeTheme);
+  const {theme} = useSelector((state: RootState) => state.themeReducer);
   return (
     <View style={stylesHeader.containerHeader}>
       <Pressable onPress={changeTheme}>
         <Image
-          source={require('../../../assets/menu.png')}
+          source={require('../../../assets/dark-mode.png')}
           style={stylesHeader.menuHeaderImage}
         />
       </Pressable>
 
-      <Text style={stylesHeader.titleHeader}>Movie App</Text>
+      <Text
+        style={
+          theme === 'light'
+            ? stylesHeader.titleHeader
+            : stylesHeader.titleHeaderLight
+        }>
+        Movie App
+      </Text>
       <Pressable onPress={() => navigation.navigate('Favorite' as never)}>
-        <Image
-          source={require('../../../assets/favorite.png')}
-          style={stylesHeader.favoriteHeaderImage}
-        />
+        {theme === 'light' ? (
+          <Image
+            source={require('../../../assets/favorite.png')}
+            style={stylesHeader.favoriteHeaderImage}
+          />
+        ) : (
+          <Image
+            source={require('../../../assets/heart_black.png')}
+            style={stylesHeader.favoriteHeaderImage}
+          />
+        )}
       </Pressable>
     </View>
   );
