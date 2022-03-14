@@ -2,7 +2,9 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {useEffect, useState} from 'react';
 import {FlatList, ListRenderItem, SafeAreaView} from 'react-native';
+import {useSelector} from 'react-redux';
 import Card from '../../component/Card';
+import {RootState} from '../../store';
 import HeaderFavorite from './HeaderFavorite';
 import styles from './styles';
 
@@ -28,6 +30,8 @@ const FavoriteMovie = ({navigation}: any) => {
   //Use State data favorite image
   const [dataFavoriteMovie, setDataFavoriteMovie] = useState(result);
 
+  const {theme} = useSelector((state: RootState) => state.themeReducer);
+
   const getData = async () => {
     try {
       const jsonValue = await AsyncStorage.getItem('@favorites');
@@ -44,14 +48,21 @@ const FavoriteMovie = ({navigation}: any) => {
   };
 
   useEffect(() => {
-    getData();
-  }, []);
+    const unsubscribe = navigation.addListener('focus', () => {
+      getData();
+      //Put your Data loading function here instead of my loadData()
+    });
+
+    return unsubscribe;
+  }, [navigation]);
 
   const renderItem: ListRenderItem<TypeOfMovieData> = ({item}) => (
     <Card movieData={item} navigation={navigation} />
   );
+
   return (
-    <SafeAreaView style={styles.parentStyle}>
+    <SafeAreaView
+      style={theme === 'light' ? styles.parentStyle : styles.parentStyleWhite}>
       <HeaderFavorite navigation={navigation} />
       <FlatList
         data={dataFavoriteMovie}

@@ -14,6 +14,7 @@ const stylesHeader = StyleSheet.create({
   },
   menuHeaderImage: {width: 19, height: 19},
   titleHeader: {color: '#FDFEFF', fontWeight: '700', fontSize: 14},
+  titleHeaderWhite: {color: '#050505', fontWeight: '700', fontSize: 14},
   favoriteHeaderImage: {width: 23, height: 23},
 });
 

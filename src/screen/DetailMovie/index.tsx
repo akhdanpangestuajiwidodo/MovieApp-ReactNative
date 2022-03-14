@@ -31,6 +31,7 @@ interface TypeOfMovieData {
 
 const DetailMovie = ({route, navigation}: any) => {
   const {movieData} = route.params;
+  console.log('data nav', navigation);
 
   //Use State data favorite image
   const [dataFavoriteMovie, setDataFavoriteMovie] = useState<TypeOfMovieData[]>(
